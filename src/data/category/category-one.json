@@ -1,7 +1,7 @@
 [
   {
     "_id": {
-      "$oid": "65a4ac0f3e3d7071ea964daa"
+      "$oid": "67584730fc6a186392f7e0f5"
     },
     "name": "Panjabi-&-Kurta",
     "image": "/assets/img/product/panjabi-kurta-cotton-sahara-pakija.jpg",
@@ -24,7 +24,7 @@
   },
   {
     "_id": {
-      "$oid": "65982f781e5e50babf4e7288"
+      "$oid": "67584758fc6a186392f7e0fa"
     },
     "name": "Women's-Fashion",
     "image": "/assets/img/product/womens-fashion-category.jpg",
@@ -55,7 +55,7 @@
   },
   {
     "_id": {
-      "$oid": "65a4ac373e3d7071ea964db0"
+      "$oid": "67584794fc6a186392f7e0ff"
     },
     "name": "Shirts-Collection",
     "image": "/assets/img/product/mens-womens-shirts-collection.jpg",
@@ -79,7 +79,7 @@
   },
   {
     "_id": {
-      "$oid": "65982f8e1e5e50babf4e728c"
+      "$oid": "675847cefc6a186392f7e103"
     },
     "name": "Pants-&-Trousers",
     "image": "/assets/img/product/pants-trousers-winter-cotton-mobile.jpg",
@@ -94,7 +94,7 @@
   },
   {
     "_id": {
-      "$oid": "65a4aa62e6147dcd19eb52e8"
+      "$oid": "675847f7fc6a186392f7e107"
     },
     "name": "T-Shirts-Collection",
     "image": "/assets/img/product/t-shirts-collection-cotton-graphic-polo.jpg",
@@ -116,7 +116,7 @@
   },
   {
     "_id": {
-      "$oid": "659c1df706744fb450d64d25"
+      "$oid": "67584826fc6a186392f7e10b"
     },
     "name": "Beauty-&-Cosmetics",
     "image": "/assets/img/product/beauty-cosmetics-products-skincare-makeup.jpg",
@@ -131,7 +131,7 @@
   },
   {
     "_id": {
-      "$oid": "65a4a952e6147dcd19eb52e2"
+      "$oid": "6758485ab7b53af5a6a256ed"
     },
     "name": "Baby-Essentials",
     "image": "/assets/img/product/baby-essentials-clothing-and-accessories.jpg",
@@ -146,7 +146,7 @@
   },
   {
     "_id": {
-      "$oid": "65a4a9e33e3d7071ea964da5"
+      "$oid": "67584932b7b53af5a6a256f7"
     },
     "name": "Hoodies-&-Sweatshirts",
     "image": "https://res.cloudinary.com/dofqwdx2y/image/upload/v1707058725/rpphv8rudvfm9u2eolkz.jpg",
