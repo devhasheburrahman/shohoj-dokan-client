@@ -1,20 +1,28 @@
-import { Fragment, useEffect } from "react";
-import SEO from "../../components/seo";
-import LayoutOne from "../../layouts/LayoutOne";
-import HeroSliderOne from "../../wrappers/hero-slider/HeroSliderOne";
-import FeatureIcon from "../../wrappers/feature-icon/FeatureIcon";
-import TabProduct from "../../wrappers/product/TabProduct";
+import { Fragment, useEffect, useState } from "react";
 import CategoryProduct from "../../components/CategoryProduct/CategoryProduct";
+import SEO from "../../components/seo";
+import Spinner from "../../components/Spinner/Spinner"; // Import Spinner component
+import LayoutOne from "../../layouts/LayoutOne";
+import FeatureIcon from "../../wrappers/feature-icon/FeatureIcon";
+import HeroSliderOne from "../../wrappers/hero-slider/HeroSliderOne";
+import TabProduct from "../../wrappers/product/TabProduct";
 
 const HomeFashion = () => {
+  const [isLoading, setIsLoading] = useState(true); // Loading state to manage loader visibility
+
   useEffect(() => {
     const isReloaded = sessionStorage.getItem("isCategoryReload");
     if (!isReloaded) {
-      console.log("ssss");
       window.location.reload();
       sessionStorage.setItem("isCategoryReload", true);
     }
+    // Simulate loading by hiding the loader after a set time
+    const timer = setTimeout(() => {
+      setIsLoading(false); // Set loading to false once data is ready
+    }, 2000); // Set the delay as per your requirements (2 seconds)
+
     return () => {
+      clearTimeout(timer); // Cleanup the timer on unmount
       sessionStorage.removeItem("isCategoryReload");
     };
   }, []);
@@ -29,18 +37,21 @@ const HomeFashion = () => {
         headerContainerClass="container-fluid"
         headerPaddingClass="header-padding-1"
       >
-        {/* hero slider */}
-        <HeroSliderOne />
+        {/* Conditionally render the spinner */}
+        {isLoading ? (
+          <Spinner /> // Display the loader while loading
+        ) : (
+          <>
+            {/* Show page content after loading */}
+            <HeroSliderOne />
 
-        {/* featured icon */}
-        <CategoryProduct />
+            <CategoryProduct />
 
-        {/* tab product */}
-        <TabProduct spaceBottomClass="pb-60 pt-40" category="fashion" />
+            <TabProduct spaceBottomClass="pb-60 pt-40" category="fashion" />
 
-        {/* blog featured */}
-        {/* <BlogFeatured spaceBottomClass="pb-55" /> */}
-        <FeatureIcon spaceTopClass="pt-50" spaceBottomClass="pb-60" />
+            <FeatureIcon spaceTopClass="pt-50" spaceBottomClass="pb-60" />
+          </>
+        )}
       </LayoutOne>
     </Fragment>
   );

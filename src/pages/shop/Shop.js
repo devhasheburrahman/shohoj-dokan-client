@@ -1,17 +1,15 @@
-import { Fragment, useState, useEffect } from "react";
+import axios from "axios";
+import { Fragment, useEffect, useState } from "react";
 import Paginator from "react-hooks-paginator";
-import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { getSortedProducts } from "../../helpers/product";
 import SEO from "../../components/seo";
+import Spinner from "../../components/Spinner/Spinner";
+import { Base_Url } from "../../Config/config";
+import { getSortedProducts } from "../../helpers/product";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
-import ShopSidebar from "../../wrappers/product/ShopSidebar";
-import ShopTopbar from "../../wrappers/product/ShopTopbar";
 import ShopProducts from "../../wrappers/product/ShopProducts";
-import { Base_Url } from "../../Config/config";
-import axios from "axios";
-import Spinner from "../../components/Spinner/Spinner";
+import ShopTopbar from "../../wrappers/product/ShopTopbar";
 
 const Shop = () => {
   const [layout, setLayout] = useState("grid three-column");
@@ -111,51 +109,52 @@ const Shop = () => {
           ]}
         />
 
-        <div className="shop-area">
-          <div className="container">
-            <div className="row">
-              {/* <div className="col-lg-3 order-2 order-lg-1">
-                shop sidebar
-                <ShopSidebar
-                  products={products}
-                  getSortParams={getSortParams}
-                  sideSpaceClass="mr-30"
-                />
-              </div> */}
-              <div className="col-lg-12 order-1 order-lg-2">
-                {/* shop topbar default */}
-                <ShopTopbar
-                  getLayout={getLayout}
-                  getFilterSortParams={getFilterSortParams}
-                  productCount={products.length}
-                  sortedProductCount={currentData.length}
-                />
-
-                {/* shop page content default */}
-                {loading ? (
-                  <Spinner />
-                ) : (
-                  <ShopProducts layout={layout} products={currentData} />
-                )}
-
-                {/* shop product pagination */}
-                <div className="pro-pagination-style text-center mt-30">
-                  <Paginator
-                    totalRecords={sortedProducts.length}
-                    pageLimit={pageLimit}
-                    pageNeighbours={2}
-                    setOffset={setOffset}
-                    currentPage={currentPage}
-                    setCurrentPage={setCurrentPage}
-                    pageContainerClass="mb-0 mt-0"
-                    pagePrevText="«"
-                    pageNextText="»"
+        {loading ? (
+          <Spinner />
+        ) : (
+          <div className="shop-area">
+            <div className="container">
+              <div className="row">
+                {/* <div className="col-lg-3 order-2 order-lg-1">
+            shop sidebar
+            <ShopSidebar
+              products={products}
+              getSortParams={getSortParams}
+              sideSpaceClass="mr-30"
+            />
+          </div> */}
+                <div className="col-lg-12 order-1 order-lg-2">
+                  {/* shop topbar default */}
+                  <ShopTopbar
+                    getLayout={getLayout}
+                    getFilterSortParams={getFilterSortParams}
+                    productCount={products.length}
+                    sortedProductCount={currentData.length}
                   />
+
+                  {/* shop page content default */}
+
+                  <ShopProducts layout={layout} products={currentData} />
+
+                  {/* shop product pagination */}
+                  <div className="pro-pagination-style text-center mt-30">
+                    <Paginator
+                      totalRecords={sortedProducts.length}
+                      pageLimit={pageLimit}
+                      pageNeighbours={2}
+                      setOffset={setOffset}
+                      currentPage={currentPage}
+                      setCurrentPage={setCurrentPage}
+                      pageContainerClass="mb-0 mt-0"
+                      pagePrevText="«"
+                      pageNextText="»"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </LayoutOne>
     </Fragment>
   );

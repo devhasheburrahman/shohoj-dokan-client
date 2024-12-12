@@ -1,15 +1,15 @@
 import { Fragment, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
-import { getDiscountPrice } from "../../helpers/product";
 import SEO from "../../components/seo";
+import { getDiscountPrice } from "../../helpers/product";
 import LayoutOne from "../../layouts/LayoutOne";
-import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import { addToCart } from "../../store/slices/cart-slice";
 import {
-  deleteFromWishlist,
   deleteAllFromWishlist,
+  deleteFromWishlist,
 } from "../../store/slices/wishlist-slice";
+import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 
 const Wishlist = () => {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const Wishlist = () => {
       sessionStorage.removeItem("isCategoryReload");
     };
   }, []);
-  
+
   return (
     <Fragment>
       <SEO
@@ -176,9 +176,7 @@ const Wishlist = () => {
                   <div className="col-lg-12">
                     <div className="cart-shiping-update-wrapper">
                       <div className="cart-shiping-update">
-                        <Link
-                          to={process.env.PUBLIC_URL + "/shop-grid-standard"}
-                        >
+                        <Link to={process.env.PUBLIC_URL + "/products"}>
                           Continue Shopping
                         </Link>
                       </div>
@@ -202,7 +200,7 @@ const Wishlist = () => {
                     </div>
                     <div className="item-empty-area__text">
                       No items found in wishlist <br />{" "}
-                      <Link to={process.env.PUBLIC_URL + "/shop"}>
+                      <Link to={process.env.PUBLIC_URL + "/products"}>
                         Add Items
                       </Link>
                     </div>

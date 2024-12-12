@@ -1,12 +1,10 @@
+import cogoToast from "cogo-toast";
 import PropTypes from "prop-types";
-import React, { Fragment, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { Fragment, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getProductCartQuantity } from "../../helpers/product";
-import Rating from "./sub-components/ProductRating";
 import { addToCart } from "../../store/slices/cart-slice";
-import { addToWishlist } from "../../store/slices/wishlist-slice";
-import cogoToast from "cogo-toast";
+import Rating from "./sub-components/ProductRating";
 
 import { useNavigate } from "react-router-dom";
 
