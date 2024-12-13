@@ -1,9 +1,9 @@
 import { Fragment, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import GoogleMap from "../../components/google-map";
 import SEO from "../../components/seo";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
-import GoogleMap from "../../components/google-map";
 
 const Contact = () => {
   let { pathname } = useLocation();

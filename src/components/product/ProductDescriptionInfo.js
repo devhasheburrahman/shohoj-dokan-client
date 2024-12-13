@@ -1,4 +1,4 @@
-import cogoToast from "cogo-toast";
+// import cogoToast from "cogo-toast";
 import PropTypes from "prop-types";
 import React, { Fragment, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -38,7 +38,7 @@ const ProductDescriptionInfo = ({
 
   const handleBuyNowClick = () => {
     if (!selectedProductSize) {
-      cogoToast.error("Please Select Size");
+      // cogoToast.error("Please Select Size");
       return;
     }
     dispatch(
@@ -136,7 +136,7 @@ const ProductDescriptionInfo = ({
             <button
               onClick={() => {
                 if (!selectedProductSize) {
-                  cogoToast.error("Please Select Size");
+                  // cogoToast.error("Please Select Size");
                   return;
                 }
                 dispatch(

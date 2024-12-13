@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import cogoToast from "cogo-toast";
+// import cogoToast from "cogo-toast";
 
 const compareSlice = createSlice({
   name: "compare",
@@ -9,13 +9,13 @@ const compareSlice = createSlice({
   reducers: {
     addToCompare(state, action) {
       state.compareItems.push(action.payload);
-      cogoToast.success("Added To compare", { position: "bottom-left" });
+      //   cogoToast.success("Added To compare", { position: "bottom-left" });
     },
     deleteFromCompare(state, action) {
       state.compareItems = state.compareItems.filter(
         (item) => item.id !== action.payload
       );
-      cogoToast.error("Removed From Compare", { position: "bottom-left" });
+      //   cogoToast.error("Removed From Compare", { position: "bottom-left" });
     },
   },
 });

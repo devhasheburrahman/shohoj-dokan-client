@@ -1,19 +1,16 @@
 import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SEO from "../../components/seo";
 import { getDiscountPrice } from "../../helpers/product";
 import LayoutOne from "../../layouts/LayoutOne";
-import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 import {
   addToCart,
   decreaseQuantity,
   deleteFromCart,
-  deleteAllFromCart,
 } from "../../store/slices/cart-slice";
-import { useNavigate } from "react-router-dom";
-import { cartItemStock } from "../../helpers/product";
-import cogoToast from "cogo-toast";
+import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
+// import cogoToast from "cogo-toast";
 import axios from "axios";
 import DistrictSelector from "../../components/DistrictSelector";
 import { Base_Url } from "../../Config/config";
@@ -52,7 +49,7 @@ const Cart = () => {
   const handleCreateOrder = async (e) => {
     e.preventDefault();
     if (!name || !phone || !selectedDistrict || !selectedDivision || !address) {
-      cogoToast.error("Please fill in all In your Address.");
+      // cogoToast.error("Please fill in all In your Address.");
       return;
     }
     try {
@@ -78,12 +75,12 @@ const Cart = () => {
         console.log(response.data.orders._id);
         navigate(`/thanks/${response.data.orders._id}`);
 
-        cogoToast.success("Successfully Create Order", {});
+        // cogoToast.success("Successfully Create Order", {});
 
         console.log(response.data);
         // navigate(`/thanks/${response.data.orderProduct._id}`);
       } catch (error) {
-        cogoToast.error("Error creating order:", error);
+        // cogoToast.error("Error creating order:", error);
       }
     } catch (error) {
       console.error("Error preparing order data:", error);

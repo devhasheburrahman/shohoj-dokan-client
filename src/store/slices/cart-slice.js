@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import cogoToast from "cogo-toast";
+// import cogoToast from "cogo-toast";
 import { v4 as uuidv4 } from "uuid";
 
 const cartSlice = createSlice({
@@ -31,14 +31,14 @@ const cartSlice = createSlice({
         });
       }
 
-      cogoToast.success("Added To Cart", { position: "bottom-left" });
+      // cogoToast.success("Added To Cart", { position: "bottom-left" });
     },
 
     deleteFromCart(state, action) {
       state.cartItems = state.cartItems.filter(
         (item) => item.cartItemId !== action.payload
       );
-      cogoToast.error("Removed From Cart", { position: "bottom-left" });
+      // cogoToast.error("Removed From Cart", { position: "bottom-left" });
     },
     decreaseQuantity(state, action) {
       const product = action.payload;
@@ -46,16 +46,16 @@ const cartSlice = createSlice({
         state.cartItems = state.cartItems.filter(
           (item) => item.cartItemId !== product.cartItemId
         );
-        cogoToast.error("Removed From Cart", { position: "bottom-left" });
+        // cogoToast.error("Removed From Cart", { position: "bottom-left" });
       } else {
         state.cartItems = state.cartItems.map((item) =>
           item.cartItemId === product.cartItemId
             ? { ...item, quantity: item.quantity - 1 }
             : item
         );
-        cogoToast.warn("Item Decremented From Cart", {
-          position: "bottom-left",
-        });
+        // cogoToast.warn("Item Decremented From Cart", {
+        //   position: "bottom-left",
+        // });
       }
     },
     deleteAllFromCart(state) {
