@@ -1,6 +1,5 @@
 import { Fragment, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import GoogleMap from "../../components/google-map";
 import SEO from "../../components/seo";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
@@ -8,16 +7,23 @@ import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 const Contact = () => {
   let { pathname } = useLocation();
 
+  // useEffect(() => {
+  //   const isReloaded = sessionStorage.getItem("isCategoryReload");
+  //   if (!isReloaded) {
+  //     console.log("ssss");
+  //     window.location.reload();
+  //     sessionStorage.setItem("isCategoryReload", true);
+  //   }
+  //   return () => {
+  //     sessionStorage.removeItem("isCategoryReload");
+  //   };
+  // }, []);
+
   useEffect(() => {
-    const isReloaded = sessionStorage.getItem("isCategoryReload");
-    if (!isReloaded) {
-      console.log("ssss");
+    if (!sessionStorage.getItem("isCategoryReload")) {
+      sessionStorage.setItem("isCategoryReload", "true");
       window.location.reload();
-      sessionStorage.setItem("isCategoryReload", true);
     }
-    return () => {
-      sessionStorage.removeItem("isCategoryReload");
-    };
   }, []);
 
   return (
@@ -36,9 +42,9 @@ const Contact = () => {
         />
         <div className="contact-area pt-100 pb-100">
           <div className="container">
-            <div className="contact-map mb-10">
+            {/* <div className="contact-map mb-10">
               <GoogleMap lat={47.444} lng={-122.176} />
-            </div>
+            </div> */}
             <div className="custom-row-2">
               <div className="col-12 col-lg-4 col-md-5">
                 <div className="contact-info-wrap">

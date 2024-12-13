@@ -1,28 +1,22 @@
 import { Fragment, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import SectionTitleWithText from "../../components/section-title/SectionTitleWithText";
 import SEO from "../../components/seo";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
-import SectionTitleWithText from "../../components/section-title/SectionTitleWithText";
 
-import TextGridOne from "../../wrappers/text-grid/TextGridOne";
-import FunFactOne from "../../wrappers/fun-fact/FunFactOne";
-import TeamMemberOne from "../../wrappers/team-member/TeamMemberOne";
 import BrandLogoSliderOne from "../../wrappers/brand-logo/BrandLogoSliderOne";
+import TeamMemberOne from "../../wrappers/team-member/TeamMemberOne";
+import TextGridOne from "../../wrappers/text-grid/TextGridOne";
 
 const About = () => {
   let { pathname } = useLocation();
 
   useEffect(() => {
-    const isReloaded = sessionStorage.getItem("isCategoryReload");
-    if (!isReloaded) {
-      console.log("ssss");
+    if (!sessionStorage.getItem("isCategoryReload")) {
+      sessionStorage.setItem("isCategoryReload", "true");
       window.location.reload();
-      sessionStorage.setItem("isCategoryReload", true);
     }
-    return () => {
-      sessionStorage.removeItem("isCategoryReload");
-    };
   }, []);
 
   return (
@@ -49,11 +43,11 @@ const About = () => {
         <TextGridOne spaceBottomClass="pb-70" />
 
         {/* fun fact */}
-        <FunFactOne
+        {/* <FunFactOne
           spaceTopClass="pt-100"
           spaceBottomClass="pb-70"
           bgClass="bg-gray-3"
-        />
+        /> */}
 
         {/* team member */}
         <TeamMemberOne spaceTopClass="pt-95" spaceBottomClass="pb-70" />
