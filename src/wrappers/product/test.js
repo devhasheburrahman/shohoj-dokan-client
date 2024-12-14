@@ -59,7 +59,8 @@ const ProductDescriptionInfo = ({
     "i18next-browser-languagedetector": "^7.0.0",
     "i18next-http-backend": "^2.0.1",insatall this vertion vertion and reinstall new vertion 
     # npm install typescript
-    
+    #version change typescript
+
     
     */}
       <div className="product-details-tab"></div>
