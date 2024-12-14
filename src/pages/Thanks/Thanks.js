@@ -36,7 +36,7 @@ const Thanks = () => {
             <p className="text-center fw-bold display-6  ">
               Shohoj Dokan Online Shop
             </p>
-            <p className="text-center fw-bold    "> Order Processing</p>
+            <p className="text-center fw-bold"> Order Processing</p>
             <p className="text-uppercase text-danger text-center d-flex justify-content-center gap-2">
               <span> Order Id: </span> <p>SD{id.slice(-6)} </p>
             </p>
