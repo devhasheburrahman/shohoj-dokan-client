@@ -1,11 +1,10 @@
-import LayoutOne from "../../layouts/LayoutOne";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import React, { useEffect, useState, Fragment } from "react";
-import { useParams } from "react-router-dom";
-import Card from "react-bootstrap/Card";
+import React, { Fragment, useEffect, useState } from "react";
 import { Badge } from "react-bootstrap";
+import Card from "react-bootstrap/Card";
+import { useNavigate, useParams } from "react-router-dom";
 import { Base_Url } from "../../Config/config";
+import LayoutOne from "../../layouts/LayoutOne";
 
 const Thanks = () => {
   const { id } = useParams();
@@ -37,7 +36,7 @@ const Thanks = () => {
             <p className="text-center fw-bold display-6  ">
               Shohoj Dokan Online Shop
             </p>
-            <p className="text-center fw-bold    "> Order Details</p>
+            <p className="text-center fw-bold    "> Order Processing</p>
             <p className="text-uppercase text-danger text-center d-flex justify-content-center gap-2">
               <span> Order Id: </span> <p>SD{id.slice(-6)} </p>
             </p>
