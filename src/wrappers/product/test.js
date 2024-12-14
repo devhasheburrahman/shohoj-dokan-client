@@ -61,6 +61,9 @@ const ProductDescriptionInfo = ({
     # npm install typescript
     #version change typescript
  npm install i18next@^22.0.4 i18next-browser-languagedetector@^7.0.0 i18next-http-backend@^2.0.1 --force
+
+ npm install redux@4.2.1
+update
     
     */}
       <div className="product-details-tab"></div>
