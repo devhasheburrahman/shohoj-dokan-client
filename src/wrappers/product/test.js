@@ -55,6 +55,10 @@ const ProductDescriptionInfo = ({
           <span>{finalProductPrice} </span>
         )}
       </div>
+      {/* remove  "i18next": "^22.0.4",
+    "i18next-browser-languagedetector": "^7.0.0",
+    "i18next-http-backend": "^2.0.1",insatall this vertion vertion and reinstall new vertion */}
+
       {product.rating && product.rating > 0 ? (
         <div className="pro-details-rating-wrap">
           <div className="pro-details-rating">
