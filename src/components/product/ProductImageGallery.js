@@ -1,12 +1,11 @@
-import React, { Fragment, useState } from "react";
 import PropTypes from "prop-types";
+import React, { Fragment, useState } from "react";
 import { EffectFade, Thumbs } from "swiper";
 import AnotherLightbox from "yet-another-react-lightbox";
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
-import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Swiper, { SwiperSlide } from "../../components/swiper";
-import ReactImageMagnify from "react-image-magnify";
 
 const ProductImageGallery = ({ product }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -55,14 +54,13 @@ const ProductImageGallery = ({ product }) => {
         {/* Display placeholder initially */}
         <img
           className="default-img "
-          
           src={`${process.env.PUBLIC_URL}/shohojdokan-product-loader.png`}
           alt={product.name}
-          style={{ height:'350px', display: imageLoaded ? "none" : "block" }}
+          style={{ height: "350px", display: imageLoaded ? "none" : "block" }}
         />
 
         {/* Once loaded, show the actual image */}
-        {slides.length > 0 && (
+        {/*   {slides.length > 0 && (
           <ReactImageMagnify
             {...{
               smallImage: {
@@ -80,7 +78,7 @@ const ProductImageGallery = ({ product }) => {
               enlargedImagePosition: "over",
             }}
           />
-        )}
+        )} */}
 
         {/* Lightbox and Swiper (if needed) */}
         {slides.length > 1 && (
