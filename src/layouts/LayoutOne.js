@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { Fragment } from "react";
+import MobileBottomMenu from "../components/header/MobileBottomMenu";
 import ScrollToTop from "../components/scroll-to-top";
 import FooterOne from "../wrappers/footer/FooterOne";
 import HeaderOne from "../wrappers/header/HeaderOne";
@@ -25,6 +26,7 @@ const LayoutOne = ({
         spaceTopClass="pt-100"
         spaceBottomClass="pb-70"
       />
+      <MobileBottomMenu />
       <ScrollToTop />
       {/* todo work */}
     </Fragment>

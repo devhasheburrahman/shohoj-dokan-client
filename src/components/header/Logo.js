@@ -16,7 +16,7 @@ const Logo = ({ imageUrl, logoClass }) => {
     >
       <Link to={process.env.PUBLIC_URL + "/"}>
         <img height={50} alt="" src="/logoFinal.png" />
-        {/* <p className="display-6 fw-bold">Dokan</p> */}
+        {/* <p className="display-5">Dokan</p> */}
 
         {/* Shohodokan logo here  */}
       </Link>

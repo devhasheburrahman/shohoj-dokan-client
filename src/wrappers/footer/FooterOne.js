@@ -1,5 +1,5 @@
-import PropTypes from "prop-types";
 import clsx from "clsx";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import FooterCopyright from "../../components/footer/FooterCopyright";
 import FooterNewsletter from "../../components/footer/FooterNewsletter";
@@ -39,127 +39,106 @@ const FooterOne = ({
               spaceBottomClass="mb-30"
             />
           </div>
-          <div
-            className={`${
-              sideMenu ? "col-xl-2 col-sm-4" : "col-lg-2 col-sm-4"
-            }`}
-          >
-            <div className="footer-widget mb-30 ml-30">
-              <div className="footer-title">
-                <h3>ABOUT US</h3>
-              </div>
-              <div className="footer-list">
-                <ul>
-                  <li>
-                    <Link to={process.env.PUBLIC_URL + "/about"}>About us</Link>
-                  </li>
-                  <li>
-                    <Link to={process.env.PUBLIC_URL + "#/"}>
-                      Store location
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to={process.env.PUBLIC_URL + "/contact"}>
-                      Contact
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to={process.env.PUBLIC_URL + "#/"}>
-                      Orders tracking
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div
-            className={`${
-              sideMenu ? "col-xl-2 col-sm-4" : "col-lg-2 col-sm-4"
-            }`}
-          >
-            <div
-              className={`${
-                sideMenu
-                  ? "footer-widget mb-30 ml-95"
-                  : "footer-widget mb-30 ml-50"
-              }`}
-            >
-              <div className="footer-title">
-                <h3>USEFUL LINKS</h3>
-              </div>
-              <div className="footer-list">
-                <ul>
-                  <li>
-                    <Link to={process.env.PUBLIC_URL + "#/"}>Returns</Link>
-                  </li>
-                  <li>
-                    <Link to={process.env.PUBLIC_URL + "#/"}>
-                      Support Policy
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to={process.env.PUBLIC_URL + "#/"}>Size guide</Link>
-                  </li>
-                  <li>
-                    <Link to={process.env.PUBLIC_URL + "/faq"}>FAQs</Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div
-            className={`${
-              sideMenu ? "col-xl-3 col-sm-4" : "col-lg-2 col-sm-6"
-            }`}
-          >
-            <div
-              className={`${
-                sideMenu
-                  ? "footer-widget mb-30 ml-145"
-                  : "footer-widget mb-30 ml-75"
-              }`}
-            >
-              <div className="footer-title">
-                <h3>FOLLOW US</h3>
-              </div>
-              <div className="footer-list">
-                <ul>
-                  <li>
-                    <a
-                      href="https://www.facebook.com/profile.php?id=61555547074882"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Facebook
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.facebook.com/profile.php?id=61555318182865"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Twitter
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.instagram.com/shohojdokan/?next=%2F"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Instagram
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/" target="_blank" rel="noopener noreferrer">
-                      Youtube
-                    </a>
-                  </li>
-                </ul>
+
+          <div className="footer p-4">
+            <div className="container">
+              <div className="row">
+                {/* ABOUT US */}
+                <div className="col-4 mb-3">
+                  <div className="footer-widget">
+                    <div className="footer-title">
+                      <h5>ABOUT US</h5>
+                    </div>
+                    <ul className="list-unstyled">
+                      <li>
+                        <Link to="/about"   >
+                          About us
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/store-location"   >
+                          Store location
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/contact"   >
+                          Contact
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/tracking"   >
+                          Orders tracking
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* FOLLOW US */}
+                <div className="col-4 mb-3">
+                  <div className="footer-widget">
+                    <div className="footer-title">
+                      <h5>FOLLOW US</h5>
+                    </div>
+                    <ul className="list-unstyled">
+                      <li>
+                        <Link to="/facebook"   >
+                          Facebook
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/instagram"   >
+                          Instagram
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/twitter"   >
+                          Twitter
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/linkedin"   >
+                          LinkedIn
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* SUPPORT */}
+                <div className="col-4 mb-3">
+                  <div className="footer-widget">
+                    <div className="footer-title">
+                      <h5>SUPPORT</h5>
+                    </div>
+                    <ul className="list-unstyled">
+                      <li>
+                        <Link to="/faqs"   >
+                          FAQs
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/support"   >
+                          Support Center
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/contact"   >
+                          Contact Us
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/returns"   >
+                          Returns
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+
           <div
             className={`${
               sideMenu ? "col-xl-3 col-sm-8" : "col-lg-4 col-sm-6"

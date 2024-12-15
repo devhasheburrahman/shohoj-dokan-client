@@ -1,11 +1,11 @@
+import clsx from "clsx";
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
-import clsx from "clsx";
-import Logo from "../../components/header/Logo";
-import NavMenu from "../../components/header/NavMenu";
-import IconGroup from "../../components/header/IconGroup";
-import MobileMenu from "../../components/header/MobileMenu";
 import HeaderTop from "../../components/header/HeaderTop";
+import IconGroup from "../../components/header/IconGroup";
+import Logo from "../../components/header/Logo";
+import MobileMenu from "../../components/header/MobileMenu";
+import NavMenu from "../../components/header/NavMenu";
 
 const HeaderOne = ({
   layout,
@@ -53,6 +53,7 @@ const HeaderOne = ({
         </div>
       </div>
 
+      {/* naveMenu  */}
       <div
         className={clsx(
           headerPaddingClass,
@@ -61,10 +62,10 @@ const HeaderOne = ({
         )}
       >
         <div className={layout === "container-fluid" ? layout : "container"}>
-          <div className="row d-flex justify-content-center   align-items-center">
+          <div className="row py-1 d-flex justify-content-center   align-items-center">
             <div className="col-xl-2 col-lg-2 col-md-6 col-4">
               {/* header logo */}
-              <Logo imageUrl="/assets/img/logo/logo.png" logoClass="logo" />
+              <Logo imageUrl="/assets/img/logo/logo.png" />
             </div>
             <div className="col-xl-8 col-lg-8 d-none d-lg-block">
               {/* Nav menu */}

@@ -18,7 +18,7 @@ const CategoryOneSingle = ({ data }) => {
 };
 
 CategoryOneSingle.propTypes = {
-  data: PropTypes.shape({})
+  data: PropTypes.shape({}),
 };
 
 export default CategoryOneSingle;
