@@ -1,6 +1,5 @@
-import PropTypes from "prop-types";
 import clsx from "clsx";
-import SubscribeEmail from "./sub-components/SubscribeEmail";
+import PropTypes from "prop-types";
 import PaymentMethod from "./PaymentMethod";
 
 const FooterNewsletter = ({
@@ -19,14 +18,7 @@ const FooterNewsletter = ({
         widgetColorClass
       )}
     >
-      <div className="footer-title">
-        <h3>SUBSCRIBE</h3>
-      </div>
-      <div className={clsx("subscribe-style", colorClass)}>
-        <p>Get E-mail updates about our latest shop and special offers.</p>
-        {/* subscribe email */}
-        <SubscribeEmail mailchimpUrl="//devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef" />
-      </div>
+      {/*  */}
       <div className="mt-3">
         <PaymentMethod />
       </div>

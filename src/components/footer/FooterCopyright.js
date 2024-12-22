@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const FooterCopyright = ({ footerLogo, spaceBottomClass, colorClass }) => {
   return (
     <div className={clsx("copyright", spaceBottomClass, colorClass)}>
-      <div className="footer-logo">
+      <div className="footer-logo d-none d-lg-block">
         <Link to={process.env.PUBLIC_URL + "/"}>
           <img height={50} alt="" src="/logoFinal.png" />
         </Link>
@@ -13,13 +13,13 @@ const FooterCopyright = ({ footerLogo, spaceBottomClass, colorClass }) => {
       <p>
         &copy; {new Date().getFullYear()}{" "}
         <a
-          href="https://hasthemes.com"
+          href="https://www.shohojdokan.com/"
           rel="noopener noreferrer"
           target="_blank"
         >
           Shohoj Dokan
         </a>
-        .<br /> All Rights Reserved
+        All Rights Reserved
       </p>
     </div>
   );

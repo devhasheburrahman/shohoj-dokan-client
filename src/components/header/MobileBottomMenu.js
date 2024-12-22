@@ -19,6 +19,12 @@ const MobileBottomMenu = () => {
           </Link>
         </Nav.Item>
         <Nav.Item>
+          <Link to="/products" className="menu-item">
+            <i className="bi bi-building"></i>
+            <span>Offer</span>
+          </Link>
+        </Nav.Item>
+        <Nav.Item>
           <Link to="/card" className="menu-item">
             <i className="bi bi-camera-video-fill"></i>
             <span>Card</span>
