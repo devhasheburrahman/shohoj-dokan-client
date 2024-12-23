@@ -1,5 +1,5 @@
+import clsx from "clsx";
 import PropTypes from "prop-types";
-import clsx from "clsx"
 
 const SectionTitle = ({
   titleText,
@@ -7,14 +7,14 @@ const SectionTitle = ({
   subtitleColorClass,
   positionClass,
   spaceClass,
-  borderClass
+  borderClass,
 }) => {
   return (
-    <div className={clsx("section-title", positionClass, spaceClass, borderClass)}>
+    <div
+      className={clsx("section-title", positionClass, spaceClass, borderClass)}
+    >
       <h2>{titleText}</h2>
-      <p className={clsx(subtitleColorClass)}>
-        {subtitleText}
-      </p>
+      <p className={clsx(subtitleColorClass)}>{subtitleText}</p>
     </div>
   );
 };
@@ -25,7 +25,7 @@ SectionTitle.propTypes = {
   spaceClass: PropTypes.string,
   subtitleText: PropTypes.string,
   subtitleColorClass: PropTypes.string,
-  titleText: PropTypes.string
+  titleText: PropTypes.string,
 };
 
 export default SectionTitle;

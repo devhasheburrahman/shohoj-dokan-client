@@ -47,7 +47,7 @@ const CategoryProduct = () => {
   const handleClick = () => {
     window.location.reload();
   };
-  console.log(CategoryData);
+  // console.log(CategoryData);
   //get cat
   // const getCategories = async () => {
   //   try {

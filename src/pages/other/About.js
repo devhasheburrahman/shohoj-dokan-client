@@ -6,6 +6,7 @@ import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
 
 import BrandLogoSliderOne from "../../wrappers/brand-logo/BrandLogoSliderOne";
+import FeatureIcon from "../../wrappers/feature-icon/FeatureIcon";
 import TeamMemberOne from "../../wrappers/team-member/TeamMemberOne";
 import TextGridOne from "../../wrappers/text-grid/TextGridOne";
 
@@ -54,6 +55,7 @@ const About = () => {
 
         {/* brand logo slider */}
         <BrandLogoSliderOne spaceBottomClass="pb-70" />
+        <FeatureIcon spaceTopClass="pt-50" spaceBottomClass="pb-60" />
       </LayoutOne>
     </Fragment>
   );

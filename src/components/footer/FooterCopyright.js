@@ -10,17 +10,7 @@ const FooterCopyright = ({ footerLogo, spaceBottomClass, colorClass }) => {
           <img height={50} alt="" src="/logoFinal.png" />
         </Link>
       </div>
-      <p>
-        &copy; {new Date().getFullYear()}{" "}
-        <a
-          href="https://www.shohojdokan.com/"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          Shohoj Dokan
-        </a>
-        All Rights Reserved
-      </p>
+      <p>&copy; {new Date().getFullYear()} Shohoj Dokan All Rights Reserved</p>
     </div>
   );
 };

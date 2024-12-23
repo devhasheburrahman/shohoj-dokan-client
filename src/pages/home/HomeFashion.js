@@ -3,7 +3,6 @@ import CategoryProduct from "../../components/CategoryProduct/CategoryProduct";
 import SEO from "../../components/seo";
 import Spinner from "../../components/Spinner/Spinner"; // Import Spinner component
 import LayoutOne from "../../layouts/LayoutOne";
-import FeatureIcon from "../../wrappers/feature-icon/FeatureIcon";
 import HeroSliderOne from "../../wrappers/hero-slider/HeroSliderOne";
 import TabProduct from "../../wrappers/product/TabProduct";
 
@@ -39,7 +38,7 @@ const HomeFashion = () => {
       >
         {/* Conditionally render the spinner */}
         {isLoading ? (
-          <Spinner /> // Display the loader while loading
+          <Spinner />
         ) : (
           <>
             {/* Show page content after loading */}
@@ -48,8 +47,6 @@ const HomeFashion = () => {
             <CategoryProduct />
 
             <TabProduct spaceBottomClass="pb-60 pt-40" category="fashion" />
-
-            <FeatureIcon spaceTopClass="pt-50" spaceBottomClass="pb-60" />
           </>
         )}
       </LayoutOne>
