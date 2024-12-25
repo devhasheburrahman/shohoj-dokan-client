@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import cogoToast from "cogo-toast";
+import toast from "react-hot-toast";
 
 const wishlistSlice = createSlice({
   name: "wishlist",
@@ -12,20 +12,20 @@ const wishlistSlice = createSlice({
         (item) => item._id === action.payload._id
       );
       if (isInWishlist > -1) {
-        console.log("product already in wishlist");
-        // cogoToast.info("Product already in wishlist", {
-        //   position: "bottom-left",
-        // });
+        // console.log("product already in wishlist");
+        toast.info("Product already in wishlist", {
+          position: "bottom-left",
+        });
       } else {
         state.wishlistItems.push(action.payload);
-        // cogoToast.success("Added To wishlist", { position: "bottom-left" });
+        toast.success("Added To wishlist", { position: "bottom-left" });
       }
     },
     deleteFromWishlist(state, action) {
       state.wishlistItems = state.wishlistItems.filter(
         (item) => item._id !== action.payload
       );
-      //   cogoToast.error("Removed From Wishlist", { position: "bottom-left" });
+      toast.error("Removed From Wishlist", { position: "bottom-left" });
     },
     deleteAllFromWishlist(state) {
       state.wishlistItems = [];

@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SEO from "../../components/seo";
@@ -10,7 +11,7 @@ import {
   deleteFromCart,
 } from "../../store/slices/cart-slice";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
-// import cogoToast from "cogo-toast";
+
 import axios from "axios";
 import DistrictSelector from "../../components/DistrictSelector";
 import { Base_Url } from "../../Config/config";
@@ -37,7 +38,7 @@ const Cart = () => {
   useEffect(() => {
     const isReloaded = sessionStorage.getItem("isCategoryReload");
     if (!isReloaded) {
-      console.log("ssss");
+      // console.log("ssss");
       window.location.reload();
       sessionStorage.setItem("isCategoryReload", true);
     }
@@ -49,7 +50,7 @@ const Cart = () => {
   const handleCreateOrder = async (e) => {
     e.preventDefault();
     if (!name || !phone || !selectedDistrict || !selectedDivision || !address) {
-      // cogoToast.error("Please fill in all In your Address.");
+      toast.error("Please fill in all In your Address.");
       return;
     }
     try {
@@ -72,24 +73,24 @@ const Cart = () => {
           `${Base_Url}/api/createOrder`,
           productData
         );
-        console.log(response.data.orders._id);
+        // console.log(response.data.orders._id);
         navigate(`/thanks/${response.data.orders._id}`);
 
-        // cogoToast.success("Successfully Create Order", {});
+        toast.success("Successfully Create Order", {});
 
-        console.log(response.data);
+        // console.log(response.data);
         // navigate(`/thanks/${response.data.orderProduct._id}`);
       } catch (error) {
-        // cogoToast.error("Error creating order:", error);
+        toast.error("Error creating order:", error);
       }
     } catch (error) {
-      console.error("Error preparing order data:", error);
+      toast.error("Error preparing order data:", error);
     }
     window.location.reload();
   };
 
   const calculateDiscount = (code) => {
-    const couponCodes = process.env.REACT_APP_COUPON_CODES.split(",").reduce(
+    const couponCodes = process.env.SHOHOJDOKAN_COUPON_CODES.split(",").reduce(
       (acc, pair) => {
         const [key, value] = pair.split("=");
         acc[key] = parseInt(value, 10);
@@ -122,7 +123,7 @@ const Cart = () => {
     setCouponPrice(newDiscountedPrice);
   };
   // console.log(couponPrice);
-  console.log(cartItems);
+  // console.log(cartItems);
   return (
     <Fragment>
       <SEO
@@ -450,6 +451,7 @@ const Cart = () => {
               </div>
             )}
           </div>
+          <Toaster />
         </div>
       </LayoutOne>
     </Fragment>

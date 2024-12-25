@@ -1,14 +1,15 @@
-import React, { Fragment, useEffect, useState } from "react";
-import SectionTitle from "../../components/section-title/SectionTitle";
-import PropTypes from "prop-types";
-import clsx from "clsx";
-import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import clsx from "clsx";
+import PropTypes from "prop-types";
+import React, { Fragment, useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import toast from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
 import { Base_Url } from "../../Config/config";
 import ProductRating from "../../components/product/sub-components/ProductRating";
+import SectionTitle from "../../components/section-title/SectionTitle";
 
 export default function RelatedProduct({ category, spaceBottomClass }) {
   const [product, setProduct] = useState([]);
@@ -21,7 +22,7 @@ export default function RelatedProduct({ category, spaceBottomClass }) {
         // console.log(data);
         setProduct(data);
       } catch (error) {
-        console.log(error);
+        toast.error("Error fetching  data:", error);
       }
     };
 

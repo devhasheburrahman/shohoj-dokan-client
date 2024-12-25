@@ -38,7 +38,6 @@ const ProductDescriptionInfo = ({
 
   const handleBuyNowClick = () => {
     if (!selectedProductSize) {
-      // cogoToast.error("Please Select Size");
       toast.error("Please Select Size");
 
       return;
@@ -138,7 +137,7 @@ const ProductDescriptionInfo = ({
             <button
               onClick={() => {
                 if (!selectedProductSize) {
-                  // cogoToast.error("Please Select Size");
+                  toast.error("Please Select Size");
                   return;
                 }
                 dispatch(

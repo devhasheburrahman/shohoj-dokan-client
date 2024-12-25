@@ -30,7 +30,7 @@ const ProductDescription = ({
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
 
-  console.log(id);
+  // console.log(id);
   let { pathname } = useLocation();
   //initalp details
   useEffect(() => {
@@ -70,11 +70,11 @@ const ProductDescription = ({
       setProduct(data.product);
       setLoading(false);
     } catch (error) {
-      console.log(error);
+      
     }
   };
 
-  console.log(product);
+  // console.log(product);
   return (
     <Fragment>
       <SEO

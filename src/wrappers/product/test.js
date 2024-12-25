@@ -41,7 +41,7 @@ const ProductDescriptionInfo = ({
     setSelectedSize(size);
   };
 
-  console.log(product.selectedOptions);
+  // console.log(product.selectedOptions);
   return (
     <div className="product-details-content ml-70">
       <h2>{product.name}</h2>

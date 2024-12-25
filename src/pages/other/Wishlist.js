@@ -22,7 +22,7 @@ const Wishlist = () => {
   useEffect(() => {
     const isReloaded = sessionStorage.getItem("isCategoryReload");
     if (!isReloaded) {
-      console.log("ssss");
+      // console.log("ssss");
       window.location.reload();
       sessionStorage.setItem("isCategoryReload", true);
     }

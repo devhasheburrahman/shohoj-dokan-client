@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Fragment, useEffect, useState } from "react";
 import Paginator from "react-hooks-paginator";
+import toast from "react-hot-toast";
 import { useLocation } from "react-router-dom";
 import SEO from "../../components/seo";
 import Spinner from "../../components/Spinner/Spinner";
@@ -32,7 +33,7 @@ const Shop = () => {
         setProduct(data);
         setLoading(false);
       } catch (error) {
-        console.log(error);
+        toast.error(error);
       }
     };
 

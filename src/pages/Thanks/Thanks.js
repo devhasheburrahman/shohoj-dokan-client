@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { Fragment, useEffect, useState } from "react";
 import { Badge } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
+import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import { Base_Url } from "../../Config/config";
 import LayoutOne from "../../layouts/LayoutOne";
@@ -11,7 +12,7 @@ const Thanks = () => {
   const [order, setOrder] = useState({});
   const [Product, setProduct] = useState([]);
   const navigate = useNavigate();
-  console.log(id);
+  // console.log(id);
 
   useEffect(() => {
     const getPosts = async () => {
@@ -20,13 +21,13 @@ const Thanks = () => {
         setOrder(result.data.order);
         setProduct(result.data.order.products);
       } catch (error) {
-        console.error("Error fetching  Order:", error);
+        toast.error("Error fetching  Order:", error);
       }
     };
     getPosts();
   }, [id]);
 
-  console.log(order);
+  // console.log(order);
 
   return (
     <Fragment>

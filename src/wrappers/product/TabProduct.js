@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
 import Tab from "react-bootstrap/Tab";
+import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import Rating from "../../components/product/sub-components/ProductRating";
 import SectionTitle from "../../components/section-title/SectionTitle";
@@ -25,7 +26,9 @@ export default function TabProduct() {
         setProduct(data);
         setLoading(false);
       } catch (error) {
-        console.log(error);
+        // console.log(error);
+        toast.error("Error fetching  data:", error);
+
         setLoading(false);
       }
     };

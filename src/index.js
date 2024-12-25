@@ -1,6 +1,7 @@
 import "animate.css";
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { Toaster } from "react-hot-toast";
 import { Provider } from "react-redux";
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -25,6 +26,7 @@ const root = createRoot(container);
 root.render(
   <Provider store={store}>
     <PersistProvider>
+      <Toaster />
       <App />
     </PersistProvider>
   </Provider>

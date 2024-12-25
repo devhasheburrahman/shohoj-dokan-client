@@ -26,7 +26,7 @@ const ProductGridListSingle = ({
 
   const handleProductClick = (id,name,) => {
     navigate(`/products/${id}/${name}`);
-    console.log(name,id);
+    // console.log(name,id);
   };
 
   return (

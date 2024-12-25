@@ -1,18 +1,17 @@
-import { Fragment, useEffect, useState } from "react";
-import SEO from "../seo";
+import axios from "axios";
+import clsx from "clsx";
+import React, { Fragment, useEffect, useState } from "react";
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import toast from "react-hot-toast";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import Rating from "../../components/product/sub-components/ProductRating";
+import { Base_Url } from "../../Config/config";
 import LayoutOne from "../../layouts/LayoutOne";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
-import { useLocation, useParams } from "react-router-dom";
-import clsx from "clsx";
-import Rating from "../../components/product/sub-components/ProductRating";
-import React from "react";
-import axios from "axios";
-import { Base_Url } from "../../Config/config";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
-import { Link, useNavigate } from "react-router-dom";
 import ShopSearch from "../product/ShopSearch";
+import SEO from "../seo";
 import Spinner from "../Spinner/Spinner";
 
 export default function ShowCategortyProduct({
@@ -34,17 +33,17 @@ export default function ShowCategortyProduct({
         setProduct(data);
         setLoading(false);
       } catch (error) {
-        console.log(error);
+        toast.success(error);
       }
     };
 
     getAllProduct();
   }, []);
 
-  console.log(id);
+  // console.log(id);
   const categoryProduct = product.filter((item) => item.category === `${id}`);
 
-  console.log(categoryProduct);
+  // console.log(categoryProduct);
   // console.log(id);
 
   const handleClick = (id, name) => {
