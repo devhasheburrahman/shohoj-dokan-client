@@ -1,6 +1,6 @@
-import cogoToast from "cogo-toast";
 import PropTypes from "prop-types";
 import React, { Fragment, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { getProductCartQuantity } from "../../helpers/product";
 import { addToCart } from "../../store/slices/cart-slice";
@@ -38,7 +38,9 @@ const ProductDescriptionInfo = ({
 
   const handleBuyNowClick = () => {
     if (!selectedProductSize) {
-      cogoToast.error("Please Select Size");
+      // cogoToast.error("Please Select Size");
+      toast.error("Please Select Size");
+
       return;
     }
     dispatch(
@@ -191,6 +193,7 @@ const ProductDescriptionInfo = ({
           </li>
         </ul>
       </div>
+      <Toaster />
     </div>
   );
 };
