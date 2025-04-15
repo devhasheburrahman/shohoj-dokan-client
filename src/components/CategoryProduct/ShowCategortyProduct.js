@@ -39,7 +39,7 @@ export default function ShowCategortyProduct({
 
     getAllProduct();
   }, []);
-
+  console.log({ product, id });
   // console.log(id);
   const categoryProduct = product.filter((item) => item.category === `${id}`);
 

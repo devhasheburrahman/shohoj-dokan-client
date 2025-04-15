@@ -8,13 +8,15 @@ import { Base_Url } from "../../Config/config";
 import Spinner from "../Spinner/Spinner";
 import SectionTitle from "../section-title/SectionTitle";
 import CategoryData from "../../data/category/category-one.json";
+import CategorySkeleton from "./CategorySkeleton";
 
 const CategoryCard = React.memo(({ category, navigate, handleClick }) => (
   <Col key={category._id}>
     <Card
       height={80}
       onClick={() => {
-        navigate(`/category/${encodeURIComponent(category.name)}`);
+        navigate(`/category/${category?._id?.$oid}`);
+        // navigate(`/category/${encodeURIComponent(category.name)}`);
         handleClick();
       }}
     >
@@ -43,7 +45,8 @@ const CategoryCard = React.memo(({ category, navigate, handleClick }) => (
 
 const CategoryProduct = () => {
   const navigate = useNavigate();
-
+  const [loading, setLoading] = useState(true);
+  const [categories, setCategories] = useState([]);
   const handleClick = () => {
     window.location.reload();
   };
@@ -63,8 +66,15 @@ const CategoryProduct = () => {
   // useEffect(() => {
   //   getCategories();
   // }, []);
-
-  // console.log(CategoryData);
+  // Simulating fetching categories (replace this with your actual fetch logic)
+  useEffect(() => {
+    setTimeout(() => {
+      // Mimicking API call or data loading
+      setCategories(CategoryData); // This should be fetched from an API in real case
+      setLoading(false); // Set loading to false once the data is ready
+    }, 5000); // Simulating a delay of 2 seconds
+  }, []);
+  console.log(CategoryData);
   return (
     <div className="mt-2">
       <div>
@@ -73,16 +83,20 @@ const CategoryProduct = () => {
           positionClass="text-center"
         />
         <div className="container">
-          <Row xs={4} md={6} height={60} lg={8} sm={5} className="g-1 md:g-5">
-            {CategoryData.map((c) => (
-              <CategoryCard
-                key={c._id}
-                category={c}
-                navigate={navigate}
-                handleClick={handleClick}
-              />
-            ))}
-          </Row>
+          {loading ? (
+            <CategorySkeleton />
+          ) : (
+            <Row xs={4} md={6} height={60} lg={8} sm={5} className="g-1 md:g-5">
+              {categories.map((c) => (
+                <CategoryCard
+                  key={c._id}
+                  category={c}
+                  navigate={navigate}
+                  handleClick={handleClick}
+                />
+              ))}
+            </Row>
+          )}
         </div>
       </div>
     </div>

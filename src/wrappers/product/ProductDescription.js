@@ -37,19 +37,15 @@ const ProductDescription = ({
     if (id) getProduct();
   }, [id]);
 
-
-
-
-
   useEffect(() => {
     window.scrollTo({
       top: 0,
       behavior: "smooth", // Optional: Adds smooth scrolling animation
     });
   }, []);
-
+  console.log({ galleryType });
   // ...
-
+  console.log({ product });
   const { cartItems } = useSelector((state) => state.cart);
   const { wishlistItems } = useSelector((state) => state.wishlist);
   const { compareItems } = useSelector((state) => state.compare);
@@ -69,9 +65,7 @@ const ProductDescription = ({
       // console.log(data);
       setProduct(data.product);
       setLoading(false);
-    } catch (error) {
-      
-    }
+    } catch (error) {}
   };
 
   // console.log(product);
@@ -107,14 +101,16 @@ const ProductDescription = ({
               <div className="col-lg-6 col-md-6">
                 {/* product image gallery */}
                 {galleryType === "leftThumb" ? (
-                  <ProductImageGallerySideThumb
-                    product={product}
-                    thumbPosition="left"
-                  />
+                  // <ProductImageGallerySideThumb
+                  //   product={product}
+                  //   thumbPosition="left"
+                  // />
+                  <p>djfasd</p>
                 ) : galleryType === "rightThumb" ? (
                   <ProductImageGallerySideThumb product={product} />
                 ) : galleryType === "fixedImage" ? (
-                  <ProductImageFixed product={product} />
+                  // <ProductImageFixed product={product} />
+                  <p>ProductImageFixed</p>
                 ) : (
                   <ProductImageGallery product={product} />
                 )}

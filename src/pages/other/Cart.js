@@ -63,10 +63,11 @@ const Cart = () => {
         totalWithDelivery: cartTotalPrice,
         deliveryCharge: deliveryCharge,
         products: cartItems,
-        subTotal: cartTotalPrice + deliveryCharge,
+        subTotal: Math.round(cartTotalPrice + deliveryCharge),
+        // subTotal: cartTotalPrice + deliveryCharge,
         couponTotal: couponDiscount,
       };
-
+      console.log({ productData });
       try {
         const response = await axios.post(
           // "http://localhost:5000/api/v1/order/create-order",
