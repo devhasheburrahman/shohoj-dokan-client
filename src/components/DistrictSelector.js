@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { allDivision, districtsOf } from "@bangladeshi/bangladesh-address";
 
 export default function DistrictSelector({
@@ -15,14 +15,14 @@ export default function DistrictSelector({
   useEffect(() => {
     const allDivisionsList = allDivision();
     setDivisions(allDivisionsList);
-  }, []);
+  }, [setDivisions]);
 
   useEffect(() => {
     if (selectedDivision) {
       const districtList = districtsOf(selectedDivision);
       setDistricts(districtList);
     }
-  }, [selectedDivision]);
+  }, [selectedDivision, setDistricts]);
 
   const handleDivisionChange = (event) => {
     setSelectedDivision(event.target.value);

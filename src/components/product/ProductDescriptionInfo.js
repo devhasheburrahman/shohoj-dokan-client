@@ -32,9 +32,9 @@ const ProductDescriptionInfo = ({
   );
   const navigate = useNavigate();
 
-  const handleSizeChange = (size) => {
-    setSelectedProductSize(size);
-  };
+  // const handleSizeChange = (size) => {
+  //   setSelectedProductSize(size);
+  // };
 
   const handleBuyNowClick = () => {
     if (!selectedProductSize) {

@@ -14,21 +14,34 @@ const LayoutOne = ({
 }) => {
   return (
     <Fragment>
-      <HeaderOne
-        layout={headerContainerClass}
-        top={headerTop}
-        headerPaddingClass={headerPaddingClass}
-        headerPositionClass={headerPositionClass}
-      />
-      {children}
-      <FooterOne
-        backgroundColorClass="bg-gray"
-        spaceTopClass="pt-30"
-        spaceBottomClass="pb-40"
-      />
-      <MobileBottomMenu />
-      <ScrollToTop />
-      {/* todo work */}
+      <div
+        style={{
+          minHeight: "100vh", // Ensures the layout takes up at least the full viewport height
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <HeaderOne
+          layout={headerContainerClass}
+          top={headerTop}
+          headerPaddingClass={headerPaddingClass}
+          headerPositionClass={headerPositionClass}
+        />
+        <main
+          style={{
+            flexGrow: 1, // Ensures that content fills available space
+          }}
+        >
+          {children}
+        </main>
+        <FooterOne
+          backgroundColorClass="bg-gray"
+          spaceTopClass="pt-30"
+          spaceBottomClass="pb-40"
+        />
+        <MobileBottomMenu />
+        <ScrollToTop />
+      </div>
     </Fragment>
   );
 };

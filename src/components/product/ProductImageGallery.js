@@ -1,17 +1,17 @@
 import PropTypes from "prop-types";
 import React, { Fragment, useState } from "react";
-import { EffectFade, Thumbs } from "swiper";
+// import { EffectFade, Thumbs } from "swiper";
 import AnotherLightbox from "yet-another-react-lightbox";
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
-import Swiper, { SwiperSlide } from "../../components/swiper";
+// import Swiper, { SwiperSlide } from "../../components/swiper";
 import ReactImageMagnify from "react-image-magnify";
 import { FiZoomIn } from "react-icons/fi";
 
 const ProductImageGallery = ({ product }) => {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const [index, setIndex] = useState(-1);
+  // const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  // const [index, setIndex] = useState(-1);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isLightbox, setIsLightbox] = useState(false);
 
@@ -22,27 +22,27 @@ const ProductImageGallery = ({ product }) => {
     alt: "Product Image",
   }));
   // Swiper slider settings
-  const gallerySwiperParams = {
-    spaceBetween: 10,
-    loop: true,
-    effect: "fade",
-    fadeEffect: {
-      crossFade: true,
-    },
-    thumbs: { swiper: thumbsSwiper },
-    modules: [EffectFade, Thumbs],
-  };
+  // const gallerySwiperParams = {
+  //   spaceBetween: 10,
+  //   loop: true,
+  //   effect: "fade",
+  //   fadeEffect: {
+  //     crossFade: true,
+  //   },
+  //   thumbs: { swiper: thumbsSwiper },
+  //   modules: [EffectFade, Thumbs],
+  // };
 
-  const thumbnailSwiperParams = {
-    onSwiper: setThumbsSwiper,
-    spaceBetween: 10,
-    slidesPerView: 4,
-    touchRatio: 0.2,
-    freeMode: true,
-    loop: true,
-    slideToClickedSlide: true,
-    navigation: true,
-  };
+  // const thumbnailSwiperParams = {
+  //   onSwiper: setThumbsSwiper,
+  //   spaceBetween: 10,
+  //   slidesPerView: 4,
+  //   touchRatio: 0.2,
+  //   freeMode: true,
+  //   loop: true,
+  //   slideToClickedSlide: true,
+  //   navigation: true,
+  // };
   console.log({ product });
   console.log({ slides });
   return (

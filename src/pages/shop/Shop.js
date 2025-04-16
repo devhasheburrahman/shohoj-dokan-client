@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import axios from "axios";
 import { Fragment, useEffect, useState } from "react";
 import Paginator from "react-hooks-paginator";
@@ -49,10 +50,10 @@ const Shop = () => {
     setLayout(layout);
   };
 
-  const getSortParams = (sortType, sortValue) => {
-    setSortType(sortType);
-    setSortValue(sortValue);
-  };
+  // const getSortParams = (sortType, sortValue) => {
+  //   setSortType(sortType);
+  //   setSortValue(sortValue);
+  // };
 
   const getFilterSortParams = (sortType, sortValue) => {
     setFilterSortType(sortType);

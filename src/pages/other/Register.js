@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
 import SEO from "../../components/seo";
@@ -46,7 +46,10 @@ const Register = () => {
                 <div className="login-register-wrapper">
                   <Tab.Container defaultActiveKey="register">
                     <Nav variant="pills" className="login-register-tab-list">
-                    <Logo imageUrl="/assets/img/logo/logo.png" logoClass="logo" />
+                      <Logo
+                        imageUrl="/assets/img/logo/logo.png"
+                        logoClass="logo"
+                      />
                     </Nav>
                     <Tab.Content>
                       <Tab.Pane eventKey="register">

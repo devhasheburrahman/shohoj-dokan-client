@@ -1,10 +1,11 @@
+/* eslint-disable no-unused-vars */
 import { Fragment, useState } from "react";
 import PropTypes from "prop-types";
-import { EffectFade, Thumbs } from "swiper";
+// import { EffectFade, Thumbs } from "swiper";
 import { Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Rating from "./sub-components/ProductRating";
-import Swiper, { SwiperSlide } from "../../components/swiper";
+// import Swiper, { SwiperSlide } from "../../components/swiper";
 import { getProductCartQuantity } from "../../helpers/product";
 import { addToCart } from "../../store/slices/cart-slice";
 import { addToWishlist } from "../../store/slices/wishlist-slice";
@@ -41,27 +42,27 @@ function ProductModal({
     selectedProductSize
   );
 
-  const gallerySwiperParams = {
-    spaceBetween: 10,
-    loop: true,
-    effect: "fade",
-    fadeEffect: {
-      crossFade: true,
-    },
-    thumbs: { swiper: thumbsSwiper },
-    modules: [EffectFade, Thumbs],
-  };
+  // const gallerySwiperParams = {
+  //   spaceBetween: 10,
+  //   loop: true,
+  //   effect: "fade",
+  //   fadeEffect: {
+  //     crossFade: true,
+  //   },
+  //   thumbs: { swiper: thumbsSwiper },
+  //   modules: [EffectFade, Thumbs],
+  // };
 
-  const thumbnailSwiperParams = {
-    onSwiper: setThumbsSwiper,
-    spaceBetween: 10,
-    slidesPerView: 4,
-    touchRatio: 0.2,
-    freeMode: true,
-    loop: true,
-    slideToClickedSlide: true,
-    navigation: true,
-  };
+  // const thumbnailSwiperParams = {
+  //   onSwiper: setThumbsSwiper,
+  //   spaceBetween: 10,
+  //   slidesPerView: 4,
+  //   touchRatio: 0.2,
+  //   freeMode: true,
+  //   loop: true,
+  //   slideToClickedSlide: true,
+  //   navigation: true,
+  // };
 
   const onCloseModal = () => {
     setThumbsSwiper(null);
@@ -86,7 +87,6 @@ function ProductModal({
                 alt=""
               />
             </div>
-            
           </div>
           <div className="col-md-7 col-sm-12 col-xs-12">
             <div className="product-details-content quickview-content">

@@ -6,7 +6,7 @@ import { deleteFromCart } from "../../../store/slices/cart-slice";
 
 const MenuCart = () => {
   const dispatch = useDispatch();
-  const currency = useSelector((state) => state.currency);
+  // const currency = useSelector((state) => state.currency);
   const { cartItems } = useSelector((state) => state.cart);
   let cartTotalPrice = 0;
 

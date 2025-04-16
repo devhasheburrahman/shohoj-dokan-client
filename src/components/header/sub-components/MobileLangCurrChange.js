@@ -1,10 +1,10 @@
-import { useSelector, useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { t } from "i18next";
 
 const MobileLangCurrChange = () => {
   const { i18n } = useTranslation();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const changeLanguageTrigger = (e) => {
     const languageCode = e.target.value;

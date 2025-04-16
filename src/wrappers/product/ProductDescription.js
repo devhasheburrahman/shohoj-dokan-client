@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { Fragment } from "react";
@@ -13,7 +13,7 @@ import ProductImageGallerySideThumb from "../../components/product/ProductImageG
 import ProductImageFixed from "../../components/product/ProductImageFixed";
 import { useLocation } from "react-router-dom";
 import Breadcrumb from "../../wrappers/breadcrumb/Breadcrumb";
-import Paginator from "react-hooks-paginator";
+// import Paginator from "react-hooks-paginator";
 import { Base_Url } from "../../Config/config";
 import clsx from "clsx";
 
@@ -26,16 +26,24 @@ const ProductDescription = ({
   galleryType,
 }) => {
   const { id } = useParams();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
 
   // console.log(id);
   let { pathname } = useLocation();
   //initalp details
+  const getProduct = useCallback(async () => {
+    try {
+      const { data } = await axios.get(`${Base_Url}/api/product/${id}`);
+      setProduct(data.product);
+      setLoading(false);
+    } catch (error) {}
+  }, [id]);
+
   useEffect(() => {
     if (id) getProduct();
-  }, [id]);
+  }, [id, getProduct]);
 
   useEffect(() => {
     window.scrollTo({
@@ -43,7 +51,6 @@ const ProductDescription = ({
       behavior: "smooth", // Optional: Adds smooth scrolling animation
     });
   }, []);
-  console.log({ galleryType });
   // ...
   console.log({ product });
   const { cartItems } = useSelector((state) => state.cart);
@@ -59,14 +66,7 @@ const ProductDescription = ({
   // console.log(relatedProducts);
 
   //getProduct
-  const getProduct = async () => {
-    try {
-      const { data } = await axios.get(`${Base_Url}/api/product/${id}`);
-      // console.log(data);
-      setProduct(data.product);
-      setLoading(false);
-    } catch (error) {}
-  };
+  // Removed duplicate getProduct function
 
   // console.log(product);
   return (
@@ -101,16 +101,14 @@ const ProductDescription = ({
               <div className="col-lg-6 col-md-6">
                 {/* product image gallery */}
                 {galleryType === "leftThumb" ? (
-                  // <ProductImageGallerySideThumb
-                  //   product={product}
-                  //   thumbPosition="left"
-                  // />
-                  <p>djfasd</p>
+                  <ProductImageGallerySideThumb
+                    product={product}
+                    thumbPosition="left"
+                  />
                 ) : galleryType === "rightThumb" ? (
                   <ProductImageGallerySideThumb product={product} />
                 ) : galleryType === "fixedImage" ? (
-                  // <ProductImageFixed product={product} />
-                  <p>ProductImageFixed</p>
+                  <ProductImageFixed product={product} />
                 ) : (
                   <ProductImageGallery product={product} />
                 )}

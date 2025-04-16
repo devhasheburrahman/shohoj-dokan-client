@@ -15,7 +15,7 @@ const IconGroup = ({ iconWhiteClass }) => {
     );
     offcanvasMobileMenu.classList.add("active");
   };
-  const { compareItems } = useSelector((state) => state.compare);
+  // const { compareItems } = useSelector((state) => state.compare);
   const { wishlistItems } = useSelector((state) => state.wishlist);
   const { cartItems } = useSelector((state) => state.cart);
 

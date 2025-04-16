@@ -3,9 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import axios from "axios";
-import { Base_Url } from "../../Config/config";
-import Spinner from "../Spinner/Spinner";
+
 import SectionTitle from "../section-title/SectionTitle";
 import CategoryData from "../../data/category/category-one.json";
 import CategorySkeleton from "./CategorySkeleton";
