@@ -28,7 +28,7 @@ const Thanks = () => {
   }, [id]);
 
   // console.log(order);
-
+  console.log({ order });
   return (
     <Fragment>
       <LayoutOne headerTop="visible">
@@ -113,7 +113,8 @@ const Thanks = () => {
                     <td className="fw-bold">Total Payable Amount </td>
                     <td className="fw-bold">
                       :৳{" "}
-                      {Math.round(order?.subTotal - (order?.couponTotal || 0))}
+                      {/* {Math.round(order?.subTotal - (order?.couponTotal || 0))} */}
+                      {order.subTotal}
                     </td>
                   </tr>
                 </tbody>

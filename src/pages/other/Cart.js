@@ -30,7 +30,7 @@ const Cart = () => {
   let { pathname } = useLocation();
   const [couponCode, setCouponCode] = useState("");
   const [couponDiscount, setcouponDiscount] = useState("");
-  const [couponPrice, setCouponPrice] = useState("");
+  const [couponPrice, setCouponPrice] = useState(0);
   const { cartItems } = useSelector((state) => state.cart);
 
   const navigate = useNavigate();
@@ -63,17 +63,19 @@ const Cart = () => {
         totalWithDelivery: cartTotalPrice,
         deliveryCharge: deliveryCharge,
         products: cartItems,
-        subTotal: Math.round(cartTotalPrice + deliveryCharge),
+        subTotal: Math.round(
+          (couponPrice > 0 ? couponPrice : cartTotalPrice) + deliveryCharge
+        ),
         // subTotal: cartTotalPrice + deliveryCharge,
         couponTotal: couponDiscount,
       };
-      console.log({ productData });
       try {
         const response = await axios.post(
           // "http://localhost:5000/api/v1/order/create-order",
           `${Base_Url}/api/createOrder`,
           productData
         );
+        console.warn({ productData });
         // console.log(response.data.orders._id);
         navigate(`/thanks/${response.data.orders._id}`);
 
@@ -91,20 +93,37 @@ const Cart = () => {
   };
 
   const calculateDiscount = (code) => {
-    const couponCodes = process.env.SHOHOJDOKAN_COUPON_CODES.split(",").reduce(
-      (acc, pair) => {
-        const [key, value] = pair.split("=");
-        acc[key] = parseInt(value, 10);
-        return acc;
-      },
-      {}
-    );
+    // Manually define the coupon codes and their values
+    const couponCodes = {
+      shohojdokan30: 30,
+      fazlulkorim30: 30,
+      nimur30: 30,
+      Hasib20: 20,
+    };
 
+    // Check if the code is in the couponCodes object
     if (code in couponCodes) {
       return couponCodes[code];
     } else {
       return 0;
     }
+  };
+
+  const handleCouponSubmit = (e) => {
+    e.preventDefault();
+
+    // Get the coupon code from your input field
+    // const couponCode = document.getElementById("couponCode").value; // Replace with your actual input ID
+
+    // Calculate the discount amount using the coupon code
+    const discountAmount = calculateDiscount(couponCode);
+    console.log({ discountAmount });
+    // Update the coupon discount state
+    setcouponDiscount(discountAmount);
+
+    // Calculate the new discounted price
+    const newDiscountedPrice = cartTotalPrice - discountAmount;
+    setCouponPrice(newDiscountedPrice);
   };
 
   const deliveryCharge =
@@ -113,18 +132,8 @@ const Cart = () => {
       ? 60
       : 80;
 
-  // console.log(deliveryCharge, selectedDistrict);
-  // console.log(Math.round(couponPrice + 60));
-
-  const handleCouponSubmit = (e) => {
-    e.preventDefault();
-    const discountAmount = calculateDiscount(couponCode);
-    setcouponDiscount(discountAmount);
-    const newDiscountedPrice = cartTotalPrice - discountAmount;
-    setCouponPrice(newDiscountedPrice);
-  };
-  // console.log(couponPrice);
-  // console.log(cartItems);
+  console.log({ cartTotalPrice, couponPrice });
+  console.log(Math.round(cartTotalPrice + deliveryCharge));
   return (
     <Fragment>
       <SEO
@@ -173,6 +182,10 @@ const Cart = () => {
                                   finalDiscountedPrice * cartItem?.quantity)
                               : (cartTotalPrice +=
                                   finalProductPrice * cartItem?.quantity);
+                            console.log({ cartTotalPrice, couponPrice });
+                            console.log(
+                              Math.round(cartTotalPrice + deliveryCharge)
+                            );
                             return (
                               <tr key={key}>
                                 <td className="product-thumbnail">

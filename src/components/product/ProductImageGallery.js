@@ -6,7 +6,6 @@ import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 // import Swiper, { SwiperSlide } from "../../components/swiper";
-import ReactImageMagnify from "react-image-magnify";
 import { FiZoomIn } from "react-icons/fi";
 
 const ProductImageGallery = ({ product }) => {
@@ -43,8 +42,7 @@ const ProductImageGallery = ({ product }) => {
   //   slideToClickedSlide: true,
   //   navigation: true,
   // };
-  console.log({ product });
-  console.log({ slides });
+  console.log(product.image);
   return (
     <Fragment>
       <div className="product-large-image-wrapper">
@@ -57,33 +55,23 @@ const ProductImageGallery = ({ product }) => {
             {product.new && <span className="purple">New</span>}
           </div>
         ) : null}
-
         {/* Display placeholder initially */}
-        <img
+        {/* <img
           className="default-img "
           src={`${process.env.PUBLIC_URL}/shohojdokan-product-loader.png`}
           alt={product.name}
           style={{ height: "350px", display: imageLoaded ? "none" : "block" }}
-        />
-
+        /> */}
         {/* Once loaded, show the actual image */}
         {slides.length > 0 && (
           <div style={{ position: "relative" }}>
-            <ReactImageMagnify
-              {...{
-                smallImage: {
-                  alt: product.name,
-                  isFluidWidth: true,
-                  src: slides[0], // Display the first image by default
-                  onLoad: () => setImageLoaded(true),
-                },
-                largeImage: {
-                  src: slides[0], // Display the first image by default
-                  backgroundColor: "White",
-                  width: 800,
-                  height: 1200,
-                },
-                enlargedImagePosition: "over",
+            <img
+              className="default-img"
+              src={product.image}
+              alt={product.name}
+              style={{
+                height: "100%",
+                width: "100%", // Added width to match the height
               }}
             />
             <button
@@ -105,7 +93,6 @@ const ProductImageGallery = ({ product }) => {
             </button>
             <AnotherLightbox
               open={isLightbox}
-              // index={index}
               close={() => setIsLightbox(false)}
               slides={formattedSlides}
               plugins={[Thumbnails, Zoom, Fullscreen]}
