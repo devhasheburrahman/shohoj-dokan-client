@@ -30,7 +30,7 @@ const HomeFashion = () => {
     <Fragment>
       <SEO
         titleTemplate="Fashion Home"
-        description="Fashion home of Shohoj Dokan Online shop BD."
+        description="Fashion home of Shohoj Dokan Online Shop BD."
       />
       <LayoutOne
         headerContainerClass="container-fluid"
